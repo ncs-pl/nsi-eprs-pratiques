@@ -19,14 +19,14 @@ assert moyenne([(15, 2), (9, 1), (12, 3)]) == 12.5
 # Ex. 2
 def pascal(n):
     C = [[1]]
-    for k in range(1, n): # on souhaite n lignes
-        Ck = [1] # chaque ligne du triangle de Pascal commence par un 1
+    for k in range(1, n + 1):  # on souhaite les n lignes, or range() ne retourne que n - 1
+        Ck = [1]  # chaque ligne du triangle de Pascal commence par un 1
         for i in range(1, k):
             # les antécédants sont à la ligne précédente (k-1)
             # et l'un est sur la même colone (i) et l'autre sur la
             # colone d'avant (i-1)
-            Ck.append(C[k-1][i - 1] + C[k-1][i])
-        Ck.append(1) # chaque ligne du triangle de Pascal se termine par un 1
+            Ck.append(C[k - 1][i - 1] + C[k - 1][i])
+        Ck.append(1)  # chaque ligne du triangle de Pascal se termine par un 1
         C.append(Ck)
     return C
 
