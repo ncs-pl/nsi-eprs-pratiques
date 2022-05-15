@@ -8,7 +8,7 @@ def maxi(tab):
     # alors ce nombre est le nouveau maximum.
     for i in range(len(tab)):
         # En ne vérifiant que si le nombre est strictement supérieur,
-        # nous gardons déjà la première apparation de ce nombre.
+        # nous gardons déjà la première apparition de ce nombre.
         if tab[i] > m[0]:
             m = (tab[i], i)
 
@@ -24,7 +24,7 @@ def recherche(gene, seq_adn):
     g = len(gene)
     i = 0
     trouve = False
-    # Tant que nous avons rien trouvé et pas fini de lire la séquence
+    # Tant que nous n'avons rien trouvé et pas fini de lire la séquence
     while i < n and trouve == False:
         j = 0
         while j < g and gene[j] == seq_adn[i + j]:

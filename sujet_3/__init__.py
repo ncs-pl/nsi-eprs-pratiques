@@ -6,7 +6,7 @@ def delta(tab):
         # le premier élément de tab ne peut pas subir de calcul
         if i == 0:
             result.append(tab[i])
-        # Calculer la différence entre l'élément actuel et son antécédant
+        # Calculer la différence entre l'élément actuel et son antécédent
         else:
             result.append(tab[i] - tab[i - 1])
 
@@ -28,17 +28,17 @@ class Noeud:
         return str(self.valeur)
 
     def est_une_feuille(self):
-        '''Renvoie True si et seulement si le noeud est une feuille'''
+        """Renvoie True si et seulement si le nœud est une feuille"""
         return self.gauche is None and self.droit is None
 
 
-def expression_infixe(e):
+def expression_infixe(expression):
     s = ""
-    if e.gauche is not None:
-        s = '(' + s + expression_infixe(e.gauche)
-    s = s + str(e.valeur)
-    if e.droit is not None:
-        s = s + expression_infixe(e.droit) + ')'
+    if expression.gauche is not None:
+        s = '(' + s + expression_infixe(expression.gauche)
+    s = s + str(expression.valeur)
+    if expression.droit is not None:
+        s = s + expression_infixe(expression.droit) + ')'
 
     return s
 

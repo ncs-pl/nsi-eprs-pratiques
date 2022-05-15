@@ -20,19 +20,19 @@ assert recherche('a', "mississippi") == 0
 Pieces = [100, 50, 20, 10, 5, 2, 1]
 
 
-def rendu_glouton(arendre, solution=[], i=0):
-    if arendre == 0:
+def rendu_glouton(a_rendre, solution=[], i=0):
+    if a_rendre == 0:
         return solution  # s'il n'y a plus rien à rendre, on return la solution
     p = Pieces[i]
     # si la plus grande pièce est inférieure ou égale à la somme à rendre,
     # alors nous pouvons ajouter cette pièce à la solution
-    if p <= arendre:
+    if p <= a_rendre:
         solution.append(p)
-        return rendu_glouton(arendre - p, solution, i)
+        return rendu_glouton(a_rendre - p, solution, i)
     else:
         # dans le cas où notre plus grande pièce est strictement supérieure à la somme
         # à rendre, alors il faut essayer avec la prochaine plus grande pièce possible
-        return rendu_glouton(arendre, solution, i + 1)
+        return rendu_glouton(a_rendre, solution, i + 1)
 
 
 assert rendu_glouton(68, [], 0) == [50, 10, 5, 2, 1]
